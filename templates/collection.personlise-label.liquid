@@ -1,0 +1,383 @@
+{{ 'personlise-label.css' | asset_url | stylesheet_tag }} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Bottle Customization</title>
+</head>
+<body>
+
+  <!-- Banner Section -->
+  <div class="banner">
+    <div class="banner-text">
+      <h2>Bottle Your Whisky, Your Way.</h2>
+      {% comment %} <p>“Create a one-of-a-kind gift with custom labels, messages, and engravings.”</p> {% endcomment %}
+    </div>
+    <img src="https://cdn.shopify.com/s/files/1/0622/9154/2198/files/Group_1410103852.png?v=1758888815" alt="Bottle">
+    
+  </div>
+
+  <!-- Steps Section -->
+  <div class="steps">
+  <h3>Steps to personalise your label</h3>
+  <div class="step-container">
+    <div class="step">
+      <span class="circle active"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+<path d="M21.4773 7.29297C22.7952 7.29297 23.8636 6.3136 23.8636 5.10547C23.8636 3.89734 22.7952 2.91797 21.4773 2.91797H13.5227C12.2048 2.91797 11.1364 3.89734 11.1364 5.10547C11.1364 6.3136 12.2048 7.29297 13.5227 7.29297M22.2336 7.18084C24.5968 11.5135 26.25 15.1349 26.25 20.0929V26.2513C26.25 31.0774 25.1511 32.0846 19.8864 32.0846H15.1136C9.84878 32.0846 8.75 31.0774 8.75 26.2513V20.0929C8.75 15.1349 10.364 11.5012 12.7273 7.1685" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.75 17.5C9.58334 18.2292 11.8009 18.1943 13.1021 17.9067C14.0094 17.7064 14.987 17.9414 15.6018 18.614L16.8044 19.9293C17.4961 20.6859 18.5446 21.0451 19.5774 20.8794L21.0993 20.6353C21.9365 20.501 22.7692 20.8402 23.3392 21.4455C25.1163 23.3333 26.25 23.3333 26.25 23.3333" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
+</svg></span>
+<div class="label-1">Step 1</div>
+      <div class="label">Choose your Malt</div>
+    </div>
+    <div class="line"></div>
+    <div class="step">
+      <span class="circle inactive"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+<path d="M28.8024 16.043V14.5846C28.8024 9.08491 28.8024 6.33506 27.0938 4.62651C25.3852 2.91797 22.6354 2.91797 17.1357 2.91797H15.6775C10.1778 2.91797 7.42794 2.91797 5.7194 4.62649C4.01086 6.33502 4.01083 9.08485 4.01079 14.5845L4.01074 20.418C4.01068 25.9176 4.01067 28.6675 5.71915 30.3761C7.42769 32.0845 10.1776 32.0846 15.6774 32.0846" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.5732 10.207H22.2399M10.5732 17.4987H22.2399" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M19.3232 30.3737V32.0846H21.0345C21.6315 32.0846 21.93 32.0846 22.1983 31.9735C22.4668 31.8622 22.6778 31.6512 23.1 31.2292L30.1345 24.1942C30.5326 23.7961 30.7316 23.597 30.8381 23.3823C31.0407 22.9737 31.0407 22.4941 30.8381 22.0854C30.7316 21.8706 30.5326 21.6716 30.1345 21.2734C29.7362 20.8753 29.5371 20.6762 29.3223 20.5698C28.9137 20.3674 28.4339 20.3674 28.0253 20.5698C27.8106 20.6762 27.6114 20.8753 27.2133 21.2734L20.1788 28.3084C19.7567 28.7305 19.5456 28.9415 19.4345 29.2098C19.3232 29.4783 19.3232 29.7767 19.3232 30.3737Z" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
+</svg></span>
+<div class="label-1">Step 2</div>
+      <div class="label">Choose a Label</div>
+    </div>
+    <div class="line"></div>
+    <div class="step">
+      <span class="circle inactive"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+<path d="M22.1874 8.72301L24.2315 6.67878C25.3606 5.54978 27.1911 5.54978 28.3201 6.67878C29.449 7.80778 29.449 9.63825 28.3201 10.7672L26.2758 12.8115M22.1874 8.72301L10.1797 20.7308C8.65527 22.2552 7.89304 23.0173 7.37404 23.9461C6.85501 24.8749 6.33283 27.0681 5.8335 29.1654C7.93071 28.666 10.1239 28.1438 11.0527 27.6248C11.9815 27.1058 12.7437 26.3436 14.2681 24.8192L26.2758 12.8115M22.1874 8.72301L26.2758 12.8115" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.0415 29.168H24.7915" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
+</svg></span>
+<div class="label-1">Step 3</div>
+      <div class="label">Personalise it</div>
+    </div>
+  </div>
+</div>
+
+<div class="subheading-pl">
+<h3> Step 1</h3>
+<h4>Choose your malt to personalise</h4>
+</div>
+
+<div class="scrollable-tabs-container"> 
+   <div class="scrollable-tabs"> 
+     <ul class="list" id="regions-list"> </ul> 
+      <div class="scrollable-tabs__indicator indicator">
+       </div> 
+    </div> 
+</div> 
+  <div class="tab-content"> 
+    <h3 class="top-head">Pick Your Bottle</h3>
+    <div class="tab-panel active"> 
+      <ul class="product-list" id="products-grid"> 
+    <span class="loader"></span> 
+   </ul>
+   </div> 
+</div>
+
+
+<!-- Discount Popup Modal -->
+<div id="discount-popup" class="discount-modal">
+  <div class="discount-modal-content">
+    <span class="discount-close-btn" id="close-discount-popup">&times;</span>
+    <h2>Order More Pay Less</h2>
+    <table class="discount-table">
+      <thead>
+        <tr>
+          <th>Quantity</th>
+          <th>Discount Percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 to 4 Bottles</td>
+          <td>No Discount</td>
+        </tr>
+        <tr>
+          <td>5 to 9 Bottles</td>
+          <td>5% Discount</td>
+        </tr>
+        <tr>
+          <td>10 to 14 Bottles</td>
+          <td>10% Discount</td>
+        </tr>
+        <tr>
+          <td>15 &amp; above Bottles</td>
+          <td>15% Discount</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // globals (kept as window-scoped like your original)
+  window.originalProductData = [];
+  window.fullProductsData = [];
+  window.currentDataTab = "";
+
+  const regionsListEl = document.getElementById("regions-list");
+  const productsGridEl = document.getElementById("products-grid");
+  const similarItemsSection = document.getElementById("similar-list");
+
+  /* --- Small helper kept as you had it --- */
+  function showProductTitle(title) {
+    const viewportWidth = window.innerWidth;
+    const uiBreakPoint = 1024;
+    const uiBreakPointTablet = 1200;
+      return title;
+  }
+
+  /* --- render products into #products-grid (preserves structure/classes) --- */
+  function showProductGrids(products) {
+    if (!productsGridEl) return;
+    // clear the loader / existing children
+    productsGridEl.innerHTML = "";
+
+    products.forEach(function (product, index) {
+   
+      
+      const meta = product.listmetafields || {};
+      const size = meta.size || "";
+const speysideText = [
+  meta.type,
+  meta.size,
+  meta.speyside,
+  meta.region,
+  meta.flavor ? `${meta.flavor}` :null,
+  {% comment %} meta.age ? `${meta.age}` : null, {% endcomment %}
+  meta.abv ? `${meta.abv}% ABV` : null
+].filter(Boolean).join(" | ");
+
+      const productCard = document.createElement("li");
+      productCard.classList.add("product-item");
+      productCard.id = "product-" + product.productId;
+
+      productCard.innerHTML = `
+        <div class="image">
+          <a href="${product.parent_url}">
+            <img src="${product.image}" alt="prod-${index}" />
+          </a>
+        </div>
+        <div class="product-d">
+        <h3 class="title" title="${product.title}">
+          ${showProductTitle(product.title)}
+        </h3>
+${speysideText ? `<p class="metafield-speyside">${speysideText}</p>` : ""}
+        {% comment %} <p class="price">  </p> {% endcomment %}
+          <p class="exvat-price">EX VAT: ₹${product.price} /bottle</p>
+         <p class="exvat-price">INC VAT: ₹${product.incl_price_with_vat} /bottle</p>
+        {% comment %} <p class="exvat-price"><span>EX VAT</span> £${product.price}</p> {% endcomment %}
+        <p class="v-discount open-discount-popup">Check Volume Discounts</p>
+        <button class="customise-button"
+        data-product-id="${product.productId}"
+        data-variant-id="${product.vid}"
+        data-product-url="${product.parent_url}" 
+        data-product-size="${size}"
+        onclick="handleCustomiseClick(event)">Customise Now</button>
+    </div>`;
+
+      productsGridEl.appendChild(productCard);
+    });
+
+ // Make sure this runs AFTER products are rendered
+function attachDiscountPopupHandlers() {
+  const openBtns = document.querySelectorAll(".open-discount-popup");
+  const closeBtn = document.getElementById("close-discount-popup");
+  const popup = document.getElementById("discount-popup");
+
+  openBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      popup.style.display = "block";
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      popup.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", function (e) {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+}
+
+
+    // if there are no products, show a message
+    if (products.length === 0) {
+      const noProduct = document.createElement('div');
+      noProduct.innerText = 'No Product Found!';
+      productsGridEl.appendChild(noProduct);
+    }
+    attachDiscountPopupHandlers();
+  }
+
+  /* --- Similar items list (keeps same markup minus add button) --- */
+  function showSimilarItems(items) {
+    if (!similarItemsSection) return;
+    while (similarItemsSection.firstChild) similarItemsSection.removeChild(similarItemsSection.firstChild);
+
+    items.forEach(function (product, index) {
+      if (index < 5) {
+        const productCard = document.createElement('li');
+        productCard.classList.add('horizontal-list-item');
+
+        productCard.innerHTML = `
+          <div class="product-card">
+            <a href="${product.parent_url}">
+              <img src="${product.image}" alt="prod-${index}">
+            </a>
+            <div class="product-card-details">
+              <div>
+                <h3 class="product-card__title" title="${product.title}">${product.title}</h3>
+                <p class="product-card__price_sample">£ ${product.incl_price_with_vat} | ${product.variant_title}</p>
+                <div class="product-card__vat-add">
+                  <p class="product-card__price">EX VAT : £ ${product.price}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        similarItemsSection.appendChild(productCard);
+      }
+    });
+  }
+
+  /* --- Regions list rendering + click handler (keeps classes/attributes) --- */
+  /* --- Regions list rendering + click handler --- */
+function showRegionsList(regions) {
+  if (!regionsListEl) return;
+  regionsListEl.innerHTML = "";
+
+  // Always prepend "All"
+  const allPlusRegions = ["All", ...regions];
+
+  allPlusRegions.forEach(function (region, index) {
+    const regionTab = document.createElement("li");
+    regionTab.classList.add("scrollable-tabs__item", "item");
+    regionTab.setAttribute("data-tab", region);
+    regionTab.innerText = region;
+
+    // First tab ("All") active
+    if (index === 0) {
+      regionTab.classList.add("active");
+      window.currentDataTab = "All";
+    }
+
+    regionTab.addEventListener("click", function () {
+      // toggle active class
+      document.querySelectorAll("#regions-list .item")
+        .forEach(tab => tab.classList.remove("active"));
+      regionTab.classList.add("active");
+
+      // filter & render products
+      if (region === "All") {
+        window.fullProductsData = window.originalProductData;
+      } else {
+        window.fullProductsData = window.originalProductData.filter(
+          item => item.region && item.region === region
+        );
+      }
+
+      // prevent crash if no products
+      if (!window.fullProductsData || window.fullProductsData.length === 0) {
+        document.getElementById("products-grid").innerHTML = "<li>No products found</li>";
+      } else {
+        showProductGrids(window.fullProductsData);
+      }
+    });
+
+    regionsListEl.appendChild(regionTab);
+  });
+}
+
+/* --- Build product array from Liquid collection and render --- */
+function getInitialData() {
+  const productsArray = [];
+  {% if collection.products %}
+    {% for product in collection.products %}
+      productsArray.push({
+        id: {{ product.id }},
+        productId: {{ product.id }},
+        region: "{{ product.metafields.custom.malt.value | escape }}",
+        speyside: "{{ product.metafields.custom.speyside.value | escape }}", 
+        Volume: "{{ product.metafields.custom.size.value | escape }}", 
+    listmetafields: {
+  speyside: "{{ product.metafields.custom.speyside.value | default: '' | escape }}",
+  region: "{{ product.metafields.custom.region.value | default: '' | escape }}",
+  type: "{{ product.metafields.custom.malt.value | default: '' | escape }}",
+  age: "{{ product.metafields.custom.age.value | default: '' | escape }}",
+  flavor: "{{ product.metafields.custom.flavor.value | default: '' | escape }}",
+  size: "{{ product.metafields.custom.size.value | default: '' | escape }}",
+  abv: "{{ product.metafields.custom.abv.value | default: '' | escape }}"
+  
+},
+        image: {% if product.variants.first.image %} "{{ shop.url }}/cdn/shop/{{ product.variants.first.image.src }}" {% else %} "{% if product.featured_image %}{{ product.featured_image | img_url: 'master' }}{% endif %}" {% endif %},
+        incl_price_with_vat: "{{ product.variants[0].price | times: 1.20 | divided_by: 100.00 | round: 2 }}",
+        parent_url: "{{ shop.url }}{{ product.url }}",
+        price: "{{ product.variants[0].price | divided_by: 100.00 | round: 2  }}",
+        title: "{{ product.title | escape }}",
+        variant_title: "{{ product.variants[0].title | escape }}",
+        vid: {{ product.variants[0].id | default: 1 }},
+      });
+    {% endfor %}
+
+    // collect unique regions (ignore empty/null safely)
+    const uniqueRegions = [...new Set(productsArray
+      .map(p => p.region)
+      .filter(r => r && r.trim() !== "")
+    )].sort();
+
+    // set globals
+    window.originalProductData = productsArray;
+    window.fullProductsData = productsArray; // default = All
+
+    // render tabs + all products
+    showRegionsList(uniqueRegions);
+    showProductGrids(window.fullProductsData);
+    showSimilarItems(window.originalProductData);
+
+  {% else %}
+    console.log("collection.products is empty or undefined");
+  {% endif %}
+}
+
+// run it
+getInitialData();
+});
+
+  function handleCustomiseClick(event) {
+    var basefronturl="https://dyol-fe.dtengg.com/";
+    const button = event.currentTarget;
+    const fullUrl = window.location.href;
+    const productbaseUrl = fullUrl.split('?')[0];
+     const p_id = button.getAttribute('data-product-id');
+     const v_id =button.getAttribute('data-variant-id');
+     const size =button.getAttribute('data-product-size');
+    var iframeurl=basefronturl+'personalize-bottle?parent_url='+productbaseUrl+'&p_qty=1&product_id='+p_id+'&variant_id='+v_id+'&size='+size;
+    button.disabled = true;
+    button.style.opacity = 0.5; 
+    button.style.cursor = 'not-allowed'; 
+    window.location.href = iframeurl;
+  }
+    window.addEventListener('pageshow', function () {
+  const buttons = document.querySelectorAll('[data-product-id]');
+  buttons.forEach(button => {
+    button.disabled = false;
+    button.style.opacity = 1;
+    button.style.cursor = 'pointer';
+  });
+});
+
+
+
+</script>
+
+
+
+</body>
+</html>
