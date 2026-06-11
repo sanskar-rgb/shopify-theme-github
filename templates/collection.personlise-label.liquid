@@ -1,4 +1,4 @@
-{{ 'personalise-label.css' | asset_url | stylesheet_tag }} 
+{{ 'personlise-Y-L-2.css' | asset_url | stylesheet_tag }} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
   <div class="steps">
   <h3>Steps to Personalize Your Whisky </h3>
   <div class="step-container">
-    <div class="stepp">
+    <div class="step">
       <span class="circle active"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
 <path d="M21.4773 7.29297C22.7952 7.29297 23.8636 6.3136 23.8636 5.10547C23.8636 3.89734 22.7952 2.91797 21.4773 2.91797H13.5227C12.2048 2.91797 11.1364 3.89734 11.1364 5.10547C11.1364 6.3136 12.2048 7.29297 13.5227 7.29297M22.2336 7.18084C24.5968 11.5135 26.25 15.1349 26.25 20.0929V26.2513C26.25 31.0774 25.1511 32.0846 19.8864 32.0846H15.1136C9.84878 32.0846 8.75 31.0774 8.75 26.2513V20.0929C8.75 15.1349 10.364 11.5012 12.7273 7.1685" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M8.75 17.5C9.58334 18.2292 11.8009 18.1943 13.1021 17.9067C14.0094 17.7064 14.987 17.9414 15.6018 18.614L16.8044 19.9293C17.4961 20.6859 18.5446 21.0451 19.5774 20.8794L21.0993 20.6353C21.9365 20.501 22.7692 20.8402 23.3392 21.4455C25.1163 23.3333 26.25 23.3333 26.25 23.3333" stroke="#121212" stroke-width="1.5" stroke-linejoin="round"/>
@@ -32,7 +32,7 @@
       <div class="label">Choose Your Malt</div>
     </div>
     <div class="line"></div>
-    <div class="stepp">
+    <div class="step">
       <span class="circle inactive"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
 <path d="M28.8024 16.043V14.5846C28.8024 9.08491 28.8024 6.33506 27.0938 4.62651C25.3852 2.91797 22.6354 2.91797 17.1357 2.91797H15.6775C10.1778 2.91797 7.42794 2.91797 5.7194 4.62649C4.01086 6.33502 4.01083 9.08485 4.01079 14.5845L4.01074 20.418C4.01068 25.9176 4.01067 28.6675 5.71915 30.3761C7.42769 32.0845 10.1776 32.0846 15.6774 32.0846" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M10.5732 10.207H22.2399M10.5732 17.4987H22.2399" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
@@ -42,7 +42,7 @@
       <div class="label">Select Your Label</div>
     </div>
     <div class="line"></div>
-    <div class="stepp">
+    <div class="step">
       <span class="circle inactive"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
 <path d="M22.1874 8.72301L24.2315 6.67878C25.3606 5.54978 27.1911 5.54978 28.3201 6.67878C29.449 7.80778 29.449 9.63825 28.3201 10.7672L26.2758 12.8115M22.1874 8.72301L10.1797 20.7308C8.65527 22.2552 7.89304 23.0173 7.37404 23.9461C6.85501 24.8749 6.33283 27.0681 5.8335 29.1654C7.93071 28.666 10.1239 28.1438 11.0527 27.6248C11.9815 27.1058 12.7437 26.3436 14.2681 24.8192L26.2758 12.8115M22.1874 8.72301L26.2758 12.8115" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M16.0415 29.168H24.7915" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
@@ -56,9 +56,9 @@
 <div class="subheading-pl">
 <h3> Step 1</h3>
 {% assign symbol = 1 | money | replace: '1.00', '' | replace: '1,00', '' | replace: '0.01', '' | strip %}
+{% assign country_code = localization.country.iso_code %}
 <h4>Choose your malt to personalize</h4>
 </div>
-
 <div class="scrollable-tabs-container"> 
    <div class="scrollable-tabs"> 
      <ul class="list" id="regions-list"> </ul> 
@@ -85,10 +85,14 @@
       <thead>
         <tr>
           <th>Quantity</th>
-          <th>Discount </th>
+          <th>Discount Percentage</th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>1 to 4 Bottles</td>
+          <td>N.A</td>
+        </tr>
         <tr>
           <td>5 to 9 Bottles</td>
           <td>5% Discount</td>
@@ -182,10 +186,9 @@ const speysideText = [
            <span class="age-number">${aged.split(" ")[0]}</span>
            <span class="age-label">${aged.split(" ").slice(1).join(" ")}</span>
          </div>
-         <hr class="divi">
        </h2>`
        : ""}
-       
+       <hr class="divi">
         <h3 class="title" title="${product.title}">
           ${showProductTitle(product.title)}
         </h3>
@@ -376,9 +379,8 @@ getInitialData();
 });
 
   function handleCustomiseClick(event) {
-    //var basefronturl="https://dyol-fe.dtstage.com/";
-    var basefronturl="https://design.thespiritsembassy.com/";
-    var apibaseurl="https://dyol-apis.dtstage.com/"
+    var basefronturl="https://dyol-fe.dtengg.com/";
+    var apibaseurl="https://dyol-apis.dtengg.com/";
     const button = event.currentTarget;
     const fullUrl = window.location.href;
     const productbaseUrl = fullUrl.split('?')[0];
@@ -387,7 +389,8 @@ getInitialData();
     const p_id = button.getAttribute('data-product-id');
     const v_id =button.getAttribute('data-variant-id');
     const size =button.getAttribute('data-product-size');
-    var currency_symbol =  "£";
+    var currency_symbol = "£";
+    var countryCode = {{ country_code | json }};
     var c_id = {{ customer.id | default: 'null' }};
     var c_email = "{{ customer.email | default: 'null' }}";
     var c_fname = "{{ customer.first_name | default: 'null' }}";
@@ -418,19 +421,14 @@ getInitialData();
           "&product_id=" + p_id +
           "&variant_id=" + v_id +
           "&size=" + size +
+          "&country_code=" + countryCode +
           "&currency_symbol=" + encodeURIComponent(currency_symbol);
 
         console.log("✅ Final iframe URL:", iframeurl);
-        console.log("✅ response data:", responseData);
-        
         button.disabled = true;
         button.style.opacity = 0.5; 
         button.style.cursor = 'not-allowed'; 
-          setTimeout(function () {
         window.location.href = iframeurl;
-  console.log("Executed after 2 seconds");
-     }, 4000);
-
         // Step 3: Assign to iframe or use further
       } else {
         console.error("❌ Invalid API response:", responseData);
