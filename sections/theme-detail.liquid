@@ -1,0 +1,265 @@
+{%- comment -%}
+  Digital Rangers – Shopify Theme detail page
+  Used on: templates/metaobject/themes.json  →  /pages/themes/{handle}
+  Reads fields from the "Shopify Theme" metaobject (type handle: themes)
+{%- endcomment -%}
+
+{%- liquid
+  assign t = metaobject
+  assign highlights = t.highlights.value
+  assign presets = t.presets.value
+  assign feature_groups = t.features.value
+  assign services = t.services.value
+  assign faqs = t.faqs.value
+  assign industries = t.industries.value
+  assign stores = t.example_stores.value
+  assign gallery = t.gallery.value
+  assign wa_text = 'Hi Digital Rangers, I want help with the ' | append: t.name.value | append: ' Shopify theme'
+-%}
+
+<div class="dr-theme">
+
+  {%- comment -%} ===== HERO ===== {%- endcomment -%}
+  <section class="dr-hero page-width">
+    <div class="dr-hero__text">
+      <p class="dr-eyebrow">Shopify Theme Experts · {{ t.developer.value }}</p>
+      <h1>{{ t.name.value }} Shopify Theme Setup &amp; Customization</h1>
+      {%- if t.tagline != blank -%}<p class="dr-hero__tagline">{{ t.tagline.value }}</p>{%- endif -%}
+
+      <ul class="dr-meta">
+        {%- if t.theme_price != blank -%}<li><span>Theme price</span><strong>{{ t.theme_price.value }}</strong></li>{%- endif -%}
+        {%- if t.rating != blank -%}<li><span>Rating</span><strong>{{ t.rating.value }}</strong></li>{%- endif -%}
+        {%- if t.catalog_size != blank -%}<li><span>Catalog size</span><strong>{{ t.catalog_size.value }}</strong></li>{%- endif -%}
+        {%- if t.version != blank -%}<li><span>Version</span><strong>{{ t.version.value }}</strong></li>{%- endif -%}
+      </ul>
+
+      {%- if industries.size > 0 -%}
+        <div class="dr-tags">
+          {%- for i in industries -%}<span class="dr-tag">{{ i }}</span>{%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="dr-ctas">
+        <a class="button" href="{{ t.cta_url.value | default: '/pages/contact' }}">{{ t.cta_text.value | default: 'Get a Free Quote' }}</a>
+        <a class="button button--secondary" href="https://wa.me/{{ section.settings.whatsapp }}?text={{ wa_text | url_encode }}" target="_blank" rel="noopener">WhatsApp Us</a>
+        {%- if t.demo_url != blank -%}
+          <a class="dr-link" href="{{ t.demo_url.value }}" target="_blank" rel="noopener nofollow">View official demo →</a>
+        {%- endif -%}
+      </div>
+      {%- if t.starting_price != blank or t.delivery_time != blank -%}
+        <p class="dr-small">
+          {%- if t.starting_price != blank -%}Customization from <strong>{{ t.starting_price.value }}</strong>{%- endif -%}
+          {%- if t.delivery_time != blank -%} · Delivery in <strong>{{ t.delivery_time.value }}</strong>{%- endif -%}
+        </p>
+      {%- endif -%}
+    </div>
+
+    {%- if t.hero_image != blank -%}
+      <div class="dr-hero__media">
+        {{ t.hero_image.value | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 50vw, 100vw', alt: t.name.value }}
+      </div>
+    {%- endif -%}
+  </section>
+
+  {%- comment -%} ===== HIGHLIGHTS ===== {%- endcomment -%}
+  {%- if highlights.size > 0 -%}
+  <section class="dr-section page-width">
+    <h2>Why choose {{ t.name.value }}?</h2>
+    <div class="dr-grid dr-grid--3">
+      {%- for h in highlights -%}
+        <div class="dr-card"><h3>{{ h.title }}</h3><p>{{ h.text }}</p></div>
+      {%- endfor -%}
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} ===== OUR SERVICES ===== {%- endcomment -%}
+  {%- if services.size > 0 -%}
+  <section class="dr-section dr-section--alt">
+    <div class="page-width">
+      <h2>Our {{ t.name.value }} services</h2>
+      <div class="dr-grid dr-grid--3">
+        {%- for s in services -%}
+          <div class="dr-card"><h3>{{ s.title }}</h3><p>{{ s.text }}</p></div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} ===== PRESETS ===== {%- endcomment -%}
+  {%- if presets.size > 0 -%}
+  <section class="dr-section page-width">
+    <h2>{{ t.name.value }} presets ({{ presets.size }} styles)</h2>
+    <div class="dr-grid dr-grid--5">
+      {%- for p in presets -%}
+        <a class="dr-preset" href="{{ p.url }}" target="_blank" rel="noopener nofollow">
+          <strong>{{ p.name }}</strong>
+          {%- if p.best_for -%}<span>{{ p.best_for }}</span>{%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} ===== GALLERY ===== {%- endcomment -%}
+  {%- if gallery.size > 0 -%}
+  <section class="dr-section page-width">
+    <h2>{{ t.name.value }} stores we've built</h2>
+    <div class="dr-grid dr-grid--3">
+      {%- for img in gallery -%}
+        <div class="dr-shot">{{ img | image_url: width: 800 | image_tag: loading: 'lazy', alt: img.alt | default: t.name.value }}</div>
+      {%- endfor -%}
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} ===== FEATURES ===== {%- endcomment -%}
+  {%- if feature_groups.size > 0 -%}
+  <section class="dr-section dr-section--alt">
+    <div class="page-width">
+      <h2>{{ t.name.value }} theme features</h2>
+      <div class="dr-grid dr-grid--2">
+        {%- for g in feature_groups -%}
+          <div class="dr-card">
+            <h3>{{ g.group }} <small>({{ g.items.size }})</small></h3>
+            <ul class="dr-checklist">
+              {%- for item in g.items -%}<li>{{ item }}</li>{%- endfor -%}
+            </ul>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} ===== EXAMPLE STORES ===== {%- endcomment -%}
+  {%- if stores.size > 0 -%}
+  <section class="dr-section page-width">
+    <h2>Brands using {{ t.name.value }}</h2>
+    <div class="dr-tags">
+      {%- for url in stores -%}
+        <a class="dr-tag" href="{{ url }}" target="_blank" rel="noopener nofollow">{{ url | remove: 'https://' | remove: 'http://' | remove: 'www.' | split: '/' | first }}</a>
+      {%- endfor -%}
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} ===== FAQ ===== {%- endcomment -%}
+  {%- if faqs.size > 0 -%}
+  <section class="dr-section page-width dr-faq">
+    <h2>{{ t.name.value }} theme FAQs</h2>
+    {%- for f in faqs -%}
+      <details><summary>{{ f.q }}</summary><div class="dr-faq__a">{{ f.a }}</div></details>
+    {%- endfor -%}
+  </section>
+  {%- endif -%}
+
+  {%- comment -%} ===== FINAL CTA ===== {%- endcomment -%}
+  <section class="dr-cta-band">
+    <div class="page-width">
+      <h2>Launch your store on {{ t.name.value }}</h2>
+      <p>Setup, customization, migration and speed optimization by a Shopify Partner agency in Mumbai.</p>
+      <div class="dr-ctas dr-ctas--center">
+        <a class="button" href="{{ t.cta_url.value | default: '/pages/contact' }}">{{ t.cta_text.value | default: 'Get a Free Quote' }}</a>
+        <a class="button button--secondary" href="https://wa.me/{{ section.settings.whatsapp }}?text={{ wa_text | url_encode }}" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+{%- comment -%} ===== SCHEMA ===== {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ t.name.value | append: ' Shopify Theme Setup & Customization' | json }},
+  "serviceType": "Shopify theme customization",
+  "provider": {
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": {{ shop.url | json }}
+  },
+  "areaServed": "IN",
+  "description": {{ t.seo_description.value | default: t.tagline.value | json }}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ shop.url | json }} },
+    { "@type": "ListItem", "position": 2, "name": "Shopify Themes", "item": {{ shop.url | append: '/pages/themes' | json }} },
+    { "@type": "ListItem", "position": 3, "name": {{ t.name.value | json }}, "item": {{ shop.url | append: request.path | json }} }
+  ]
+}
+</script>
+{%- if faqs.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for f in faqs -%}
+    { "@type": "Question", "name": {{ f.q | json }}, "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | strip_html | json }} } }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+<style>
+  .dr-theme { --dr-accent: {{ section.settings.accent }}; }
+  .dr-hero { display: grid; gap: 40px; padding: 60px 0; align-items: center; }
+  @media (min-width: 990px) { .dr-hero { grid-template-columns: 1.1fr 1fr; } }
+  .dr-eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: 13px; color: var(--dr-accent); margin: 0 0 8px; }
+  .dr-hero h1 { margin: 0 0 12px; line-height: 1.15; }
+  .dr-hero__tagline { font-size: 18px; opacity: .8; }
+  .dr-hero__media img { width: 100%; height: auto; border-radius: 12px; }
+  .dr-meta { display: flex; flex-wrap: wrap; gap: 24px; list-style: none; padding: 0; margin: 24px 0; }
+  .dr-meta span { display: block; font-size: 12px; opacity: .6; }
+  .dr-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .dr-tag { padding: 6px 12px; border: 1px solid rgba(0,0,0,.15); border-radius: 999px; font-size: 13px; text-decoration: none; color: inherit; }
+  .dr-ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 24px; }
+  .dr-ctas--center { justify-content: center; }
+  .dr-link { color: var(--dr-accent); }
+  .dr-small { font-size: 14px; opacity: .75; margin-top: 12px; }
+  .dr-section { padding: 56px 0; }
+  .dr-section--alt { background: rgba(0,0,0,.03); }
+  .dr-section h2 { margin: 0 0 28px; }
+  .dr-grid { display: grid; gap: 20px; }
+  @media (min-width: 750px) {
+    .dr-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .dr-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .dr-grid--5 { grid-template-columns: repeat(5, 1fr); }
+  }
+  .dr-card { background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 12px; padding: 24px; }
+  .dr-card h3 { margin: 0 0 8px; font-size: 18px; }
+  .dr-card small { opacity: .5; font-weight: 400; }
+  .dr-checklist { columns: 2; padding-left: 18px; margin: 0; font-size: 14px; line-height: 1.9; }
+  .dr-preset { display: block; padding: 20px; border: 1px solid rgba(0,0,0,.12); border-radius: 10px; text-decoration: none; color: inherit; text-align: center; }
+  .dr-preset:hover { border-color: var(--dr-accent); }
+  .dr-preset span { display: block; font-size: 13px; opacity: .65; margin-top: 4px; }
+  .dr-shot img { width: 100%; height: auto; border-radius: 10px; }
+  .dr-faq details { border-bottom: 1px solid rgba(0,0,0,.1); padding: 18px 0; }
+  .dr-faq summary { cursor: pointer; font-weight: 600; font-size: 17px; list-style: none; }
+  .dr-faq summary::-webkit-details-marker { display: none; }
+  .dr-faq summary::after { content: "+"; float: right; }
+  .dr-faq details[open] summary::after { content: "–"; }
+  .dr-faq__a { margin-top: 12px; line-height: 1.6; }
+  .dr-cta-band { background: var(--dr-accent); color: #fff; text-align: center; padding: 64px 0; }
+  .dr-cta-band h2, .dr-cta-band p { color: #fff; }
+</style>
+
+{% schema %}
+{
+  "name": "Theme detail",
+  "enabled_on": { "templates": ["metaobject"] },
+  "settings": [
+    { "type": "text", "id": "whatsapp", "label": "WhatsApp number (country code, no +)", "default": "918369095757" },
+    { "type": "color", "id": "accent", "label": "Accent color", "default": "#E6007E" }
+  ],
+  "presets": [{ "name": "Theme detail" }]
+}
+{% endschema %}
