@@ -8,6 +8,15 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "main": {
+      "type": "theme-detail",
+      "settings": {
+        "whatsapp": "918369095757",
+        "accent": "#E6007E"
+      }
+    }
+  },
+  "order": ["main"]
 }
+
